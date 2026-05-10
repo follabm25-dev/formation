@@ -1,195 +1,654 @@
-<!DOCTYPE html><html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Folla ben mahmoud </title>  <style>
+
+  <title>Portfolio - Folla Ben Mahmoud</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
 
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
-
-    body{
-      background:#f4f4f4;
-      color:#333;
       scroll-behavior:smooth;
     }
 
-    header{
-      background:linear-gradient(135deg,#6c63ff,#4b45b2);
-      color:white;
-      text-align:center;
-      padding:60px 20px;
+    body{
+      background:#d9dccd;
+      color:#111;
+      overflow-x:hidden;
+      font-family:'Poppins', sans-serif;
     }
 
-    header h1{
-      font-size:45px;
-    }
-
-    header p{
-      margin-top:10px;
-      font-size:18px;
-    }
+    /* NAVBAR */
 
     nav{
-      background:white;
-      text-align:center;
-      padding:15px;
+      width:100%;
+      padding:35px 90px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       position:sticky;
       top:0;
-      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      background:#d9dccdf3;
+      backdrop-filter:blur(8px);
+      z-index:999;
     }
 
-
-    nav a:hover{
-      color:#6c63ff;
+    nav h1{
+      font-size:45px;
+      line-height:42px;
+      font-family:'Cormorant Garamond', serif;
+      font-weight:700;
     }
 
-    section{
-      width:90%;
-      max-width:1100px;
-      margin:50px auto;
+    nav ul{
+      display:flex;
+      gap:45px;
+      list-style:none;
     }
 
-    h2{
-      color:#6c63ff;
-      margin-bottom:20px;
-      text-align:center;
+    nav ul li a{
+      text-decoration:none;
+      color:#111;
+      font-size:18px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      opacity:0.5;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      padding:80px 90px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    .hero img{
+      width:100%;
+      height:750px;
+      object-fit:cover;
+    }
+
+    .hero-text small{
+      font-size:18px;
+      letter-spacing:3px;
+    }
+
+    .hero-text h2{
+      font-size:120px;
+      line-height:105px;
+      font-family:'Cormorant Garamond', serif;
+      margin:25px 0;
+      font-weight:700;
+    }
+
+    .hero-text p{
+      font-size:20px;
+      line-height:38px;
+      max-width:500px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      padding:120px 90px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      height:700px;
+      object-fit:cover;
+    }
+
+    .about h2{
+      font-size:90px;
+      line-height:85px;
+      margin-bottom:30px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .about p{
+      font-size:20px;
+      line-height:40px;
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:120px 90px;
+    }
+
+    .section-title{
+      font-size:90px;
+      line-height:85px;
+      font-family:'Cormorant Garamond', serif;
+      margin-bottom:70px;
+    }
+
+    /* CARDS */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:40px;
     }
 
     .card{
       background:white;
-      padding:25px;
-      border-radius:15px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      padding:45px;
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card h3{
+      font-size:38px;
+      margin-bottom:20px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .card p{
+      line-height:34px;
+      font-size:18px;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:25px;
+    }
+
+    .skill{
+      padding:18px 35px;
+      background:#111;
+      color:white;
+      font-size:18px;
+      border-radius:40px;
+      transition:0.3s;
+    }
+
+    .skill:hover{
+      background:#444;
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:450px;
+      object-fit:cover;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    /* CONTACT */
+
+    .contact{
+      padding:120px 90px;
+    }
+
+    .contact h2{
+      font-size:90px;
+      margin-bottom:50px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    form{
+      max-width:900px;
+    }
+
+    .row{
+      display:flex;
+      gap:20px;
       margin-bottom:20px;
     }
 
-    .skills span{
-      display:inline-block;
-      background:#6c63ff;
-      color:white;
-      padding:10px 15px;
-      border-radius:20px;
-      margin:5px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
-
-    .project img{
+    input,
+    textarea{
       width:100%;
-      height:160px;
-      object-fit:cover;
-      border-radius:10px;
-    }
-
-    .project{
-      background:white;
-      padding:15px;
-      border-radius:15px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    form input,
-    form textarea{
-      width:100%;
-      padding:12px;
-      margin-top:5px;
-      margin-bottom:15px;
-      border:1px solid #ccc;
-      border-radius:10px;
-    }
-
-    form button{
-      background:#6c63ff;
-      color:white;
+      padding:22px;
       border:none;
-      padding:12px 20px;
-      border-radius:10px;
-      cursor:pointer;
+      outline:none;
+      background:white;
+      font-size:17px;
     }
 
-    form button:hover{
-      background:#4b45b2;
+    textarea{
+      height:220px;
+      resize:none;
     }
+
+    button{
+      padding:20px 45px;
+      border:none;
+      background:#111;
+      color:white;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.3s;
+      margin-top:20px;
+    }
+
+    button:hover{
+      background:#333;
+    }
+
+    /* FOOTER */
 
     footer{
-      background:#6c63ff;
-      color:white;
       text-align:center;
-      padding:15px;
-      margin-top:40px;
+      padding:50px;
+      font-size:18px;
     }
 
-  </style></head><body><header>
-  <h1>Folla Ben Mahmoud</h1>
-  <p>Étudiante en Technologie Informatique</p>
-</header><nav>
-  <a href="#about">À propos</a>
-  <a href="#skills">Compétences</a>
-  <a href="#projects">Projets</a>
-  <a href="#gallery">Galerie</a>
-  <a href="#contact">Contact</a>
-</nav><section id="about">
-  <h2>À propos</h2>
-  <div class="card">
-    <p>Bonjour Je suis Folla, étudiante en 2éme année licence en systéme enbarqué  à l'ISET Kasserine.</p>
-  </div>
-</section><section id="skills">
-  <h2>Compétences</h2>
-  <div class="card skills">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>arduino</span>
-    <span>SQL</span>
-    <span>UML</span>
-  </div>
-</section><section id="projects">
-  <h2>Projets</h2>
-  <div class="grid"><div class="project">
-  <img src="https://via.placeholder.com/300x160" alt="portfolio">
-  <h3>Portfolio Web</h3>
-  <p>systéme de sécuriter</p>
-</div>
+    /* RESPONSIVE */
 
-<div class="project">
-  <img src="https://via.placeholder.com/300x160" alt="ml">
-  <h3></h3>
-  <p></p>
-</div>
+    @media(max-width:1000px){
 
-<div class="project">
-  <img src="https://via.placeholder.com/300x160" alt="embedded">
-  <h3>Système embarqué (2ème année)</h3>
-  <p>Projet Arduino réalisé avec ISIS Proteus : simulation de circuits électroniques, capteurs et automatisation.</p>
-</div>
+      .hero,
+      .about{
+        grid-template-columns:1fr;
+      }
 
-  </div>
-</section><section id="gallery">
-  <h2>Galerie</h2>
-  <div class="grid">
-    <img src="https://via.placeholder.com/300" alt="img1">
-    <img src="https://via.placeholder.com/300" alt="img2">
-    <img src="https://via.placeholder.com/300" alt="img3">
-    <img src="https://via.placeholder.com/300" alt="img4">
-  </div>
-</section><section id="contact">
-  <h2>Contact</h2>
-  <div class="card">
-    <form>
-      <input type="text" placeholder="Nom" required>
-      <input type="email" placeholder="Email" required>
-      <textarea rows="5" placeholder="Message"></textarea>
-      <button type="submit">Envoyer</button>
+      .hero h2{
+        font-size:70px;
+        line-height:70px;
+      }
+
+      .about h2,
+      .section-title,
+      .contact h2{
+        font-size:60px;
+        line-height:60px;
+      }
+
+      nav{
+        padding:30px;
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .hero,
+      .about,
+      .section,
+      .contact{
+        padding:70px 30px;
+      }
+
+      .row{
+        flex-direction:column;
+      }
+      .footer{
+  background:#0f0f0f;
+  color:#fff;
+  padding:70px 40px 20px;
+  margin-top:100px;
+  font-family:'Poppins', sans-serif;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.footer h2,
+.footer h3{
+  margin-bottom:15px;
+  font-family:'Cormorant Garamond', serif;
+}
+
+.footer p{
+  line-height:28px;
+  opacity:0.8;
+}
+
+.footer-links a,
+.footer-social a{
+  display:block;
+  text-decoration:none;
+  color:#ccc;
+  margin-bottom:10px;
+  transition:0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover{
+  color:#fff;
+  transform:translateX(5px);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid #333;
+  font-size:14px;
+  opacity:0.7;
+}
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+
+  <nav>
+
+    <h1>Folla <br> Portfolio ✨</h1>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+
+
+  <section class="hero">
+
+    <div>
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div class="hero-text">
+
+      <small>EMBEDDED SYSTEMS • WEB DEVELOPMENT</small>
+
+      <h2>Folla Ben Mahmoud</h2>
+
+      <p>
+        Étudiante en 2ème année Licence
+        Technologie de l’Informatique —
+        Systèmes Embarqués 🤖 à ISET Kasserine 
+       Spécialisée en systèmes embarqués, Arduino et développement web moderne ( Arduino • Web • Électronique ⚡)
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="about" id="about">
+
+    <div>
+
+      <h2>About Me</h2>
+
+      <p>
+   Je suis une étudiante en systèmes embarqués, avec un intérêt particulier pour les projets basés sur Arduino et la simulation électronique. Je cherche à développer mes compétences à travers des projets pratiques et à comprendre le fonctionnement des systèmes intelligents. J’apprécie également le développement web, qui me permet de donner vie à mes idées à travers des interfaces simples et fonctionnelles.
+
+      </p>
+
+    </div>
+
+    <div>
+      <img src="c:\Users\ben mahmoud\Downloads\vTC4X3Miih8ONQYo0SsIwZ7yTQugpvpJCOBm0buPvnlp3qNo4Jf6y-z2pGoYN6tkOV1BzfWyJ0FULHZbE6oQ9eWlXPvZvFEXoplV1uG9lSymjpnt5tCTa3tWEamoULFRNcsyuPTNwj3rQI2cKkA4YJh5T8Xmx0YWoRTaSjVMAKFFE1ZGt6cdpA7DvLPLA0BE.jfif">
+    </div>
+
+  </section>
+
+  <!-- FORMATION -->
+
+  <section class="section">
+
+    <h2 class="section-title">Formation</h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Baccalauréat</h3>
+
+        <p>
+          Diplôme obtenu en 2024.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>ISET Kasserine</h3>
+
+        <p>
+          Licence en Technologie de l’Informatique —
+          2ème année Systèmes Embarqués.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- STAGES -->
+
+  <section class="section">
+
+    <h2 class="section-title">Stages</h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Opalia Pharma</h3>
+
+        <p>
+          Stage au service informatique :
+          assistance technique,
+          maintenance et découverte
+          du milieu professionnel IT.
+        </p>
+ <div>
+      <img src="téléchargement.png">
+    </div>
+      </div>
+
+      <div class="card">
+
+        <h3>Omicrone Tunisie</h3>
+
+        <p>
+          Développement web avec HTML,
+          CSS et JavaScript.
+          Participation aux projets digitaux
+          et intégration d’interfaces modernes.
+        </p>  
+        <br><br>
+         <div>
+      <img src="images.jfif">
+    </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section" id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Arduino</div>
+      <div class="skill">ISIS Proteus</div>
+      <div class="skill">Tinkercad</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">UML</div>
+
+    </div>
+
+  </section>
+
+  
+
+  <section class="section" id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Mood-Aware Smart Room</h3>
+
+        <p>
+          Projet intelligent avec Arduino,
+          capteur PIR, LDR et LED RGB
+          pour contrôler automatiquement
+          l’ambiance lumineuse d’une pièce.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Electronic Simulation</h3>
+
+        <p>
+          Simulation de circuits électroniques
+          avec ISIS Proteus
+          et programmation des microcontrôleurs.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+
+    <h2>Contact Me</h2>
+
+    <form id="contactForm">
+
+      <div class="row">
+
+        <input type="text" id="name" placeholder="Full Name">
+
+        <input type="email" id="email" placeholder="Email Address">
+
+      </div>
+
+      <div class="row">
+
+        <input type="text" id="subject" placeholder="Subject">
+
+      </div>
+
+      <textarea id="message" placeholder="Your Message"></textarea>
+
+      <button type="submit">Send Message</button>
+
     </form>
+
+  </section>
+
+  <footer class="footer">
+
+  <div class="footer-container">
+
+
+
+    <div class="footer-links">
+      <h3>Quick Links 🔗</h3>
+      <a href="#about">About Me</a><br>
+      <a href="#skills">Skills</a><br>
+      <a href="#projects">Projects</a><br>
+      <a href="#contact">Contact</a><br>
+    </div>
+<br><br>
+    <div class="footer-social">
+      <h3>Follow Me 🌐</h3>
+      <br>
+      <a href="https://www.facebook.com/Folla.Ben.Mahmoud1234/" target="_blank">📘 Facebook</a> <br>
+      <a href="https://www.instagram.com/" target="_blank">📸 Instagram</a><br>
+      <a href="https://wa.me/21629335227" target="_blank">💬 WhatsApp</a><br>
+      <a href="https://www.linkedin.com/in/folla-bm-48a933326/?skipRedirect=true" target="_blank">💼 LinkedIn</a><br>
+    </div>
+
   </div>
-</section><footer>
-  © 2026 Folla Ben Mahmoud - Portfolio
-</footer></body>
+
+  <div class="footer-bottom">
+    © 2026 • Made with ❤️ by Folla Ben Mahmoud
+  </div>
+
+</footer>
+
+  <script>
+
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let subject = document.getElementById("subject").value;
+      let message = document.getElementById("message").value;
+
+      if(name === "" || email === "" || subject === "" || message === ""){
+
+        alert("Please fill all fields");
+
+      }else{
+
+        alert("Message sent successfully!");
+        form.reset();
+
+      }
+
+    });
+
+  </script>
+
+</body>
 </html>
